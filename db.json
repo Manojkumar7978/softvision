@@ -1,24 +1,14 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "userName": "Manoj123",
-      "password": "Manoj@123",
-      "firstName": "Manoj",
-      "lastName": "Padhy",
-      "dob": "01-Jan-1990",
-      "mobileNo": "1234567890",
-      "emailId": "manoj.padhy@example.com"
-    },
-    {
-      "id": 2,
-      "userName": "abc",
-      "password": "xyz",
-      "firstName": "Manoj",
-      "lastName": "Padhy",
-      "dob": "01-Jan-1990",
-      "mobileNo": "1234567890",
-      "emailId": "manoj.padhy@example.com"
-    }
-  ]
-}
+    "users": [
+      {
+        "id": 1,
+        "userName": "Manoj1234",
+        "password": "Manoj@123",
+        "firstName": "Manoj",
+        "lastName": "Padhy",
+        "dob": "1990-12-08",
+        "mobileNo": "1234567890",
+        "emailId": "manoj.padhy@example.com"
+      }
+    ]
+  }

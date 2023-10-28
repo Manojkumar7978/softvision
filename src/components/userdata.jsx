@@ -8,7 +8,7 @@ import {
     ModalHeader,
     ModalFooter,
     ModalBody,
-    ModalCloseButton,
+    // ModalCloseButton,
     useDisclosure,
     Button,
     Text,
@@ -27,7 +27,10 @@ export default function Userdata() {
     },[])
 
     const deleteUser=()=>{
-        axios.delete(`http://localhost:5000/users/${userData.id}`,{
+        axios.delete(`http://localhost:${process.env.REACT_APP_PORT}/users/${userData.id}`,{
+          headers: {
+            Authorization: `Bearer ${null}`,
+          },
         })
         .then((res)=>{
             toast({
@@ -43,6 +46,28 @@ export default function Userdata() {
 
         })
     }
+
+    const formatDate=(inputDate)=>{
+      let datearr=inputDate.split('-')
+      let day=datearr[2]
+      let month=datearr[1]
+      let year=datearr[0]
+      const months=[
+          'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+      ]
+      if(month<=9){
+        month=months[month[1]-1]
+      }else{
+         month=months[month-1]
+      }
+      
+      let newDate=`${day}-${month}-${year}`
+     return newDate
+  }
+
+    
+
   return (
     <div>
       {
@@ -58,7 +83,7 @@ export default function Userdata() {
           <ModalBody>
           <Text fontSize={'20px'} fontWeight={'bold'}>{`User name : ${userData.userName}`}</Text>
             <Text fontSize={'20px'} fontWeight={'bold'}>{`Name : ${userData.firstName+' '+userData.lastName}`}</Text>
-            <Text fontSize={'20px'} fontWeight={'bold'}>{`DOB : ${userData.dob}`}</Text>
+            <Text fontSize={'20px'} fontWeight={'bold'}>{`DOB : ${formatDate(userData.dob)}`}</Text>
             <Text fontSize={'20px'} fontWeight={'bold'}>{`Mobile No. : ${userData.mobileNo} `}</Text>
             <Text fontSize={'20px'} fontWeight={'bold'}>{`Email : ${userData.emailId}`}</Text>
           </ModalBody>

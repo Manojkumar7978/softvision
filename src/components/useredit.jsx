@@ -1,7 +1,7 @@
 import { Box, Input ,Heading,chakra} from '@chakra-ui/react'
 import React, { useContext, useState } from 'react'
 import { myContext } from './context'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate ,Navigate } from 'react-router-dom'
 import axios from 'axios'
 
 export default function Useredit() {
@@ -25,7 +25,13 @@ export default function Useredit() {
         const mobileType = /^[0-9]{10}$/;
         if (mobileType.test(newData.mobileNo)){
             setValid(true)
-            axios.put(`http://localhost:5000/users/${userData.id}`, newData)
+            axios.put(`http://localhost:${process.env.REACT_APP_PORT}/users/${userData.id}`, newData,
+            {
+                headers: {
+                  Authorization: `Bearer ${null}`,
+                },
+              }
+            )
             .then((res)=>{
                 setUserData({...newData})
             })
@@ -35,8 +41,15 @@ export default function Useredit() {
         }
     }
 
+   
+
   return (
-    <Box width={'50%'} margin={'auto'} mt={10} padding={10} boxShadow='rgba(0, 0, 0, 0.24) 0px 3px 8px'>
+    <>
+    
+    {
+        userData===null ? <>
+        <Navigate to={'/'} />
+        </> : <Box width={'50%'} margin={'auto'} mt={10} padding={10} boxShadow='rgba(0, 0, 0, 0.24) 0px 3px 8px'>
         <form onSubmit={updateData}>
             <Heading textAlign={'center'}>Edit your Data</Heading>
             <span>User Name</span>
@@ -46,7 +59,7 @@ export default function Useredit() {
             <span>Last Name</span>
             <Input type='text' defaultValue={userData.lastName} name={'lastName'} onChange={handelChange}/>
             <span>DOB</span>
-            <Input type='date'  name={'dob'} onChange={handelChange}/>
+            <Input type='date' defaultValue={userData.dob}  name={'dob'} onChange={handelChange}/>
             <span>Mobile No.</span>
             <Input type='number' defaultValue={userData.mobileNo} name={'mobileNo'} onChange={handelChange}/>
             {validMob ? <></> : <chakra.span color={'red'} >Please enter a Valid Number</chakra.span >}
@@ -58,5 +71,7 @@ export default function Useredit() {
 
       
     </Box>
+    }
+    </>
   )
 }

@@ -11,7 +11,7 @@ export default function Signup() {
     const toast = useToast()
     const navigate=useNavigate()
     let {setUserData}=useContext(myContext)
-
+    console.log(process.env.REACT_APP_PORT)
     const [formData, setFormData] = useState({
         userName: '',
         password: '',
@@ -47,7 +47,8 @@ export default function Signup() {
         e.preventDefault();
         const mobileType = /^[0-9]{10}$/;
         if (mobileType.test(formData.mobileNo)) {
-            axios.post('http://localhost:5000/users', formData)
+            // console.log(process.env.PORT)
+            axios.post(`http://localhost:${process.env.REACT_APP_PORT}/users`, formData)
             formRef.current.reset();
             setValid(true)
             setFormData({
@@ -75,7 +76,8 @@ export default function Signup() {
     const handelSignin=async (e)=>{
         e.preventDefault()
         signinRef.current.reset()
-        let user=await axios.get(`http://localhost:5000/users?userName=${signinData.userName}&&password=${signinData.password}`)
+        console.log(process.env.REACT_APP_PORT)
+        let user=await axios.get(`http://localhost:${process.env.REACT_APP_PORT}/users?userName=${signinData.userName}&&password=${signinData.password}`)
         if(user.data.length===1){
             setUserData(user.data[0])
             navigate('/userData')
