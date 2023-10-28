@@ -11,14 +11,14 @@
       "emailId": "manoj.padhy@example.com"
     },
     {
-        "id": 2,
-        "userName": "xyz",
-        "password": "xyz",
-        "firstName": "Manoj",
-        "lastName": "Padhy",
-        "dob": "01-Jan-1990",
-        "mobileNo": "1234567890",
-        "emailId": "manoj.padhy@example.com"
-      }
+      "id": 2,
+      "userName": "abc",
+      "password": "xyz",
+      "firstName": "Manoj",
+      "lastName": "Padhy",
+      "dob": "01-Jan-1990",
+      "mobileNo": "1234567890",
+      "emailId": "manoj.padhy@example.com"
+    }
   ]
 }

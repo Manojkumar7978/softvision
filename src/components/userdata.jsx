@@ -17,7 +17,7 @@ import {
 import axios from 'axios'
 
 export default function Userdata() {
-    const {userData}=useContext(myContext)
+    const {userData,setUserData}=useContext(myContext)
     const { isOpen, onOpen, onClose } = useDisclosure()
     const navigate=useNavigate()
     const toast=useToast()
@@ -56,6 +56,7 @@ export default function Userdata() {
         <ModalContent>
           <ModalHeader margin={'auto'}>User Details</ModalHeader>
           <ModalBody>
+          <Text fontSize={'20px'} fontWeight={'bold'}>{`User name : ${userData.userName}`}</Text>
             <Text fontSize={'20px'} fontWeight={'bold'}>{`Name : ${userData.firstName+' '+userData.lastName}`}</Text>
             <Text fontSize={'20px'} fontWeight={'bold'}>{`DOB : ${userData.dob}`}</Text>
             <Text fontSize={'20px'} fontWeight={'bold'}>{`Mobile No. : ${userData.mobileNo} `}</Text>
@@ -71,6 +72,11 @@ export default function Userdata() {
             <Button variant='solid' colorScheme='blue'
             onClick={deleteUser}
             >Delete your id</Button>
+            <Button variant='solid' colorScheme='blue'
+            onClick={()=>{
+                setUserData(null)
+            }}
+            >Logout</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
