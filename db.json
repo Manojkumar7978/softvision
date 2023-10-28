@@ -1,14 +1,14 @@
 {
   "users": [
     {
-      "id": 1,
-      "userName": "Manoj1234",
-      "password": "Manoj@123",
-      "firstName": "Manoj",
+      "userName": "Manoj7978",
+      "password": "7978625865",
+      "firstName": "Manoj Kumar",
       "lastName": "Padhy",
-      "dob": "1990-12-08",
-      "mobileNo": "1234567890",
-      "emailId": "manoj.padhy@example.com"
+      "dob": "2023-10-27",
+      "mobileNo": "7978625864",
+      "emailId": "manojkumarpadhyms@gmail.com",
+      "id": 2
     }
   ]
 }

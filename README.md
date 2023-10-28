@@ -8,7 +8,7 @@
 - https://softvision-f0r91l9nl-manojkumar7978.vercel.app/
 
 ## Demo
-- 
+- https://vimeo.com/878938553/a758f48832?share=copy
 
 ## Features
 
